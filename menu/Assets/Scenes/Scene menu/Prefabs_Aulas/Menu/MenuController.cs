@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
-using UnityEngine.Rendering;
-using static System.Net.WebRequestMethods;
-using UnityEngine.Windows;
+using System.IO;
 
 public class MenuController : MonoBehaviour
 {
@@ -64,7 +62,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(newGameScene);
+        SceneManager.LoadScene(1);
     }
 
     private void SaveConfigs()
@@ -101,20 +99,9 @@ public class MenuController : MonoBehaviour
             Directory.CreateDirectory(path);
         }
         var binaryFormatter = new BinaryFormatter();
-        var file = fileCreate(path + "ConfigData.save");
+        var file = File.Create(path + "ConfigData.save");
         
         binaryFormatter.Serialize(file, configs);
-        file.Close();
-        
-        
-
-
-        
-
-    }
-
-    private System.IO.Stream fileCreate(string v)
-    {
-        throw new NotImplementedException();
+        file.Close();        
     }
 }
