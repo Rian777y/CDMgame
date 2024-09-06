@@ -15,12 +15,10 @@ public class Player : MonoBehaviour
     public float mouseSensitivityY; // Sensibilidade de movimento vertical da câmera
     float inputAim; // Input para dar zoom na mira, por enquanto estamos usando para mostrar o cursor
                     // Start is called before the first frame update
-
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        cameraT = Camera.main.transform;
     }
 
     // Update is called once per frame
